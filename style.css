@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  /* border: 1px solid red; */
+}
+::-webkit-scrollbar {
+  display: none;
+}
+body {
+  min-height: 100vh;
+  background-color: #f8f8f8;
+}
+
+.header {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+}
+
+.container {
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+.bottom-nav {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f4f9;
+  border-radius: 10px;
+  z-index: 1000;
+}
+
+.nav-logo {
+  position: relative;
+  display: flex;
+  width: 100px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.menu-list {
+  position: relative;
+}
+
+.list-menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-item {
+  margin-inline: 5px;
+}
+
+.menu-link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  color: #000000;
+}
+
+.popup-menu {
+  position: absolute;
+  z-index: -1000;
+  bottom: 20px;
+  opacity: 0;
+  transition: 0.2s ease-in;
+  display: flex;
+  white-space: nowrap;
+  padding: 10px  20px;
+  border-radius: 5px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #f0f4f9;
+}
+
+.menu-link i {
+  font-size: 1.50rem;
+  transition: 0.2s ease-in;
+}
+
+.menu-link:hover i + .popup-menu {
+  bottom: 50px;
+  opacity: 1;
+  transition: 0.2s ease-in;
+}
+
+.menu-item:hover  .menu-link i {
+  color: red;
+}
+
+.slider-wrapper {
+  position: relative;
+  max-width: 100%;
+  margin-inline: auto;
+  z-index: 100;
+}
+
+.slider {
+  display: flex;
+  aspect-ratio: 16/9;
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.slider img {
+  flex: 1 0 100%;
+  scroll-snap-align: start;
+  object-fit: cover;
+}
+
+.slider-nav {
+  display: flex;
+  column-gap: 0.5rem;
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 101;
+}
+
+.slider-nav a {
+  position: relative;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.4s ease;
+}
+
+/* Ketika dot aktif: berubah jadi panjang (lonjong) */
+.slider-nav a.active {
+  width: 2.5rem;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Membuat isi progress bar yang berjalan ke kanan */
+.slider-nav a.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background-color: #ffffff; /* Warna progress bar yang jalan */
+  border-radius: 6px;
+  animation: progressMove 5s linear forwards; /* Durasi harus sama dengan intervalTime di JS (5 detik) */
+}
+
+/* Animasi Progress Bar dari kiri ke kanan */
+@keyframes progressMove {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #00000094, #00000000);
+}
+
+.title img {
+  width: 300px;
+}
