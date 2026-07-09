@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bintang Jaya Lancar</title>
+  <link rel="stylesheet" href="./core/style/style.css">
+
+  <!-- Remix Icon -->
+  <link
+  href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+  rel="stylesheet"
+  />
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">
+        <div class="logo_box">
+          <a href="#">BintangJayaLancar.</a>
+        </div>
+      </div>
+
+      <div class="nav_menu" id="menu">
+        <ul class="menu_list">
+          <li class="menu_items">
+            <a href="#" class="menu_link">
+              Beranda
+            </a>
+          </li>
+          <li class="menu_items">
+            <a href="#" class="menu_link">
+              Tentang Kami
+            </a>
+          </li>
+          <li class="menu_items">
+            <a href="#" class="menu_link">
+              Armada
+            </a>
+          </li>
+          <li class="menu_items">
+            <a href="#" class="menu_link">
+              Layanan
+            </a>
+          </li>
+          <li class="menu_items">
+            <a href="#" class="menu_link">
+              Kontak
+            </a>
+          </li>
+
+          <div class="CTA_box_inside">
+            <button class="CTA_button">
+              <a href="#" class="CTA_link">
+                <i class="ri-receipt-line"></i> Booking
+              </a>
+            </button>
+          </div>
+        </ul>
+      </div>
+
+      <div class="CTA_box">
+        <button class="CTA_button">
+          <a href="#" class="CTA_link">
+            <i class="ri-receipt-line"></i> Booking
+          </a>
+        </button>
+      </div>
+      
+      <div class="hamburger_trigger" id="hamburger_trigger">
+        <i class="ri-menu-line"></i>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="slider_wrapper">
+      <div class="slider_container" id="sliderContainer">
+        <div class="slides_track" id="slidesTrack">
+          <div class="slide active">
+            <img src="./core/assets/Mercedes_benz_marcopolo_paradiso.jpeg" alt="">
+          </div>
+          <div class="slide">
+            <img src="./core/assets/Scania_Touring.jpeg" alt="">
+          </div>
+          <div class="slide">
+            <img src="./core/assets/Volvo_9000_Series.jpeg" alt="">
+          </div>
+          <div class="slide">
+            <img src="./core/assets/Volvo_Marcopolo_Paradiso.jpeg" alt="">
+          </div>
+        </div>
+
+        <div class="dots-container">
+          <div class="dot active"><span></span></div>
+          <div class="dot"><span></span></div>
+          <div class="dot"><span></span></div>
+          <div class="dot"><span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight_armada">
+      <div class="highlight_box">
+        <div class="highlight_images">
+          <div class="armada_images">
+            <img id="armadaImg" src="./core/assets/Toyota Hiace.png" alt="BMX X5">
+          </div>
+        </div>
+        <div class="highlight_description_box">
+          <div class="title_highlight">
+            <p id="armadaTitle">Hiace</p>
+          </div>
+          <div class="facility_box">
+            <ul class="facility_item" id="armadaFacilities">
+                <span><i class="ri-check-line"></i>18 Seat</span>
+                <span><i class="ri-check-line"></i>Wifi</span>
+                <span><i class="ri-check-line"></i>Karaoke</span>
+                <span><i class="ri-check-line"></i>AC</span>
+                <span><i class="ri-check-line"></i>Bantal</span>
+            </ul>
+          </div>
+
+          <div class="next_pref_button">
+            <button id="prevBtn"><i class="ri-arrow-left-s-line"></i></button>
+            <button id="nextBtn"><i class="ri-arrow-right-s-line"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="./core/script/main.js"></script>
+</body>
+</html>

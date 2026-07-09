@@ -1,0 +1,409 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  /* border: 1px solid red; */
+}
+
+body {
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid #f8f8f8;
+  box-shadow: 0 20px 2px solid #000000;
+  background: #ffffff54;
+  backdrop-filter: blur(50px);
+  z-index: 1000;
+}
+
+.nav {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 20px;
+}
+
+.logo {
+  position: relative;
+}
+
+.logo_box {
+  width: 200px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo_box a {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #000000;
+}
+
+.nav_menu {
+  position: relative;
+}
+
+.menu_list {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu_items {
+  margin-inline: 10px;
+}
+
+.menu_link {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+  color: #000000;
+  text-wrap: center;
+}
+
+.CTA_box {
+  position: relative;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.CTA_box_inside {
+  display: none;
+}
+
+.CTA_button {
+  width: fit-content;
+  height: 40px;
+  padding-inline: 20px;
+  border-radius: 50px;
+  background: #f2f2f2;
+}
+
+.CTA_link {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Poppins',sans-serif;
+  color: #000000;
+}
+
+.hamburger_trigger {
+  display: none;
+    transition: all 0.2s ease-in;
+}
+
+.hero {
+  position: relative;
+  top: 80px;
+}
+
+/* Slider Section */
+.slider_wrapper {
+  height: 600px;
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  background: #1a1a2e;
+}
+
+.slider_container  {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slides_track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dots-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  z-index: 10;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: width 0.4s cubic-bezier(0,4, 0, 0.2, 1);
+}
+
+.dot.active {
+  width: 45px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dot span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background-color: #ffffff;
+  border-radius: 6px;
+}
+
+.dot.active span {
+  animation: progress 5s linear forwards;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.highlight_armada {
+  position: relative;
+  margin: 10px;
+  height: fit-content;
+  /* padding: 20px; */
+  border-radius: 10px;
+}
+
+.highlight_box {
+  position: relative;
+  display: flex;
+  /* margin-inline: 5px; */
+}
+
+.highlight_description_box {
+  padding: 20px;
+  position: relative;
+  width: 70%;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  margin-right: 5px;
+}
+
+.title_highlight {
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  color: #000000;
+}
+
+.facility_box {
+  position: relative;
+  margin-block: 10px;
+}
+
+.facility_item:nth-child(2) {
+  position: relative;
+
+}
+
+.facility_item span {
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  color: #474747;
+  margin-inline-end: 10px;
+}
+
+/* .facility_item span:nth-child(2),
+.facility_item span:nth-child(3),
+.facility_item span:nth-child(4),
+.facility_item span:nth-child(5),
+.facility_item span:nth-child(6) {
+  margin-inline: 10px;
+} */
+
+.facility_item span i {
+  margin-right: 5px;
+  color: #48A111;
+}
+
+.next_pref_button {
+  position: relative;
+}
+
+.next_pref_button button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #000000;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.highlight_images {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 168px;
+  border-radius: 10px;
+  background: #f8f8f8;
+}
+
+.armada_images {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.armada_images img {
+  width: 100%;
+  height: auto;
+}
+@keyframes slideContentIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes progress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+@media (max-width: 1050px)  {
+  .menu_items {
+    margin-inline: 5px;
+  }
+
+  .menu_link {
+    font-size: 16;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 800px) {
+  .menu_list {
+    position: relative;
+    height: 100vh;
+    display: block;
+    justify-content: start;
+  }
+  .nav_menu {
+    position: absolute;
+    top: 0;
+    right: -250px;
+    width: 200px;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: 0 5px 10px #00000086;
+    transition: all 0.2s ease-in;
+  }
+
+  .nav_menu.active {
+    right: 0;
+  }
+
+  .CTA_box_inside {
+    position: absolute;
+    display: flex;
+    bottom: 70px;
+  }
+
+  .menu_list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+  }
+
+  .menu_items {
+    margin-block: 20px;
+  }
+
+  .hamburger_trigger {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f2f2f2;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+  }
+
+  .hamburger_trigger.active {
+    right: 200px;
+    transition: all 0.2s ease-in;
+  }
+
+  .CTA_box {
+    display: none;
+  }
+
+  .highlight_armada {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .facility_item {
+    display: grid;
+  }
+  .highlight_box {
+    position: relative;
+    display: grid;
+  }
+
+  .highlight_images {
+    position: relative;
+    width: 400px;
+    height: auto;
+  }
+
+  .armada_images {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+}
