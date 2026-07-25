@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bintang Jaya Lancar | A Journey of Goodness</title>
+    <!-- Dekstop -->
+    <link rel="stylesheet" href="style.css">
+    <!-- RemixIcon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="nav container">
+            <div class="logo">
+                <p class="logo_title">BintangJayaLancar.</p>
+            </div>
+
+            <div class="menu">
+                <ul class="menu_list">
+                    <li class="menu_item">
+                        <a href="#" class="menu_link">
+                            Beranda
+                        </a>
+                    </li>
+                    <li class="menu_item">
+                        <a href="#profil" class="menu_link">
+                            Profil
+                        </a>
+                    </li>
+                    <li class="menu_item">
+                        <a href="#armada" class="menu_link">
+                            Armada
+                        </a>
+                    </li>
+                    <li class="menu_item">
+                        <a href="#destinasi" class="menu_link">
+                            Destinasi
+                        </a>
+                    </li>
+                    <li class="menu_item">
+                        <a href="#kontak" class="menu_link">
+                            Kontak
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="action_nav">
+                <div class="action_box">
+                    <a href="./pages/booking.html">
+                        <i class="ri-book-line"></i> <span>Pesan Sekarang</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="videocard_container">
+            <!-- Overlay -->
+            <div class="overlay"></div>
+            <!-- Video -->
+            <video id="myVideo" class="bg-video" autoplay loop muted playsinline src="./assets/2.mp4">
+
+            </video>
+            <div class="video_description">
+                <div class="left_description">
+                    <h1>Bintang Jaya Lancar</h1>
+                    <span>A Journey of Goodness</span>
+                </div>
+                <div class="right_description">
+                    <i class="ri-star-fill"></i> <span class="bold_rating">4,9/5</span><span
+                        class="jumlah_rating">(1000+ rombongan)</span>
+                </div>
+            </div>
+            <div class="controls">
+                <!-- Tombol Prev -->
+                <button class="btn" id="prevBtn" title="Previous">
+                    <i class="ri-skip-back-line"></i>
+                </button>
+
+                <!-- Tombol Pause / Play -->
+                <button class="btn" id="playPauseBtn" title="Pause / Play">
+                    <i class="ri-pause-line" id="playIcon"></i>
+                </button>
+
+                <!-- Tombol Next -->
+                <button class="btn" id="nextBtn" title="Next">
+                    <i class="ri-skip-forward-line"></i>
+                </button>
+
+                <!-- Tombol Interior / Eksterior -->
+                <button class="btn" id="toggleInteriorBtn" title="Show Interior">
+                    <i class="ri-logout-box-r-line" id="toggleIcon"></i>
+                </button>
+            </div>
+        </div>
+        <div class="search_box">
+            <div class="input_group">
+                <i class="ri-team-line"></i>
+                <select id="passengerSelect">
+                    <option value="" disabled selected>Jumlah Penumpang</option>
+                    <option value="15">1 - 15 Orang (Short Medium)</option>
+                    <option value="15">16 - 30 Orang (Medium Bus)</option>
+                    <option value="15">31 - 50 Orang (Big Bus)</option>
+                </select>
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="input_group">
+                <i class="ri-map-pin-line"></i>
+                <select id="destinationSelect">
+                    <option value="" disabled selected>Tujuan</option>
+                    <option value="Tuban">Tuban</option>
+                    <option value="Yogyakarta">Yogyakarta</option>
+                    <option value="Bali">Bali</option>
+                </select>
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <button class="btn_search" id="searchBtn">
+                <i class="ri-search-line"></i> Cari Bus
+            </button>
+        </div>
+
+        <div class="modal_overlay" id="busModal">
+            <div class="modal_content">
+                <button class="close_btn" id="closeModal">&times;</button>
+                <h3 class="modal_title">
+                    Rekomendasi Bus
+                </h3>
+
+                <div id="busResultContainer"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
