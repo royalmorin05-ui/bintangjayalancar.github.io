@@ -21,6 +21,12 @@ body {
     align-items: center;
     width: 100%;
     height: 100px;
+    transition: all 0.2s ease-in;
+    z-index: 1000;
+}
+
+.header.scrolled {
+    background: #ffffff;
 }
 
 .container {
@@ -106,7 +112,7 @@ body {
     top: 100px;
     left: 0;
     width: 100%;
-    height: 600px;
+    height: fit-content;
 }
 
 .videocard_container {
@@ -125,7 +131,7 @@ body {
     height: 100%;
     border-radius: 10px;
     background-color: #00000098;
-    z-index: 1;
+    z-index: 10;
 }
 
 .bg-video {
@@ -294,7 +300,7 @@ body {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    z-index: 999;
+    z-index: 99999;
 }
 
 .modal_overlay.active {
@@ -313,6 +319,7 @@ body {
     overflow-y: auto;
     transform: translateY(20px);
     transition: transform 0.3s ease;
+    z-index: 100000;
 }
 
 .modal_overlay.active .modal_content {
@@ -411,4 +418,405 @@ body {
     text-align: center;
     padding: 30px 10px;
     color: #666;
+}
+
+.about_us {
+    position: relative;
+    top: 100px;
+    left: 0;
+    margin-top: 20px;
+    margin-inline: auto;
+}
+
+.about_us_title {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about_us_title h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    color: #000000;
+}
+
+.about_us_title p {
+    margin-top: 5px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+}
+
+.about_us_items {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 1240px;
+    margin-inline: auto;
+    height: fit-content;
+}
+
+.about_left_items {
+    position: relative;
+    width: 640px;
+    height: fit-content;
+    margin-inline: 10px;
+}
+
+.about_left_items img {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.about_left_items p {
+    margin-left: 20px;
+    margin-top: 50px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000000;
+}
+
+.about_us_button {
+    position: relative;
+    padding: 16px;
+    border-radius: 10px;
+    background: #8C0000;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin: 20px;
+}
+
+.about_right_items {
+    position: relative;
+    width: 50%;
+    height: 440px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.right_items_about img,
+.left_items_about img {
+    position: relative;
+    width: 180px;
+    height: 250px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.right_items_about img {
+    margin-inline: 5px;
+    top: -50px;
+}
+
+.right_items_about span,
+.left_items_about span {
+    position: absolute;
+    border-radius: 10px;
+    z-index: 10;
+    padding: 16px;
+}
+
+.liquid_glass {
+    border-radius: 20px;
+    isolation: isolate;
+    box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.liquid_glass:focus {
+    outline: none;
+}
+
+.liquid_glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: 20px;
+    box-shadow: inset 0 0 21px -5px #ffffff;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.liquid_glass::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    filter: url(#glass-distortion);
+    -webkit-filter: url(#glass-distortion);
+}
+
+.right_items_about span {
+    top: 70px;
+    left: 250px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #000000;
+}
+
+.left_items_about span {
+    bottom: 120px;
+    right: 280px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #000000;
+}
+
+.armada {
+    position: relative;
+    top: 100px;
+    width: 100%;
+    height: fit-content;
+}
+
+.armada_header {
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+}
+
+.armada_title {
+    font-size: 32px;
+    font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #000000;
+}
+
+.armada_subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #000000;
+}
+
+.armada_tabs_container {
+    position: relative;
+    width: 320px;
+    height: 60px;
+    margin-inline: auto;
+    margin-block: 20px;
+}
+
+.armada_tab_box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: #EAEAEA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.armada_tab_box .armada_tab_btn {
+    position: relative;
+    width: 150px;
+    height: 40px;
+    background: transparent;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #000000;
+}
+
+.armada_tab_btn.active {
+    background: #8C0000;
+    color: #ffffff;
+}
+
+.armada_card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+}
+
+.card_items {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    border-radius: 10px;
+    background: #EAEAEA;
+    padding: 5px;
+    margin-inline: 5px;
+}
+
+.card_header {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.card_header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.badge_engine {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #ffffff;
+}
+
+.card_body {
+    position: relative;
+}
+
+.body_header {
+    position: relative;
+    margin-top: 10px;
+}
+
+.buses_name {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #000000;
+}
+
+.body_name {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #444444;
+}
+
+.body_items {
+    margin-top: 5px;
+}
+
+.body_items h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #000000;
+}
+
+.facility_items_grid {
+    margin-top: 5px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.facility_item {
+    position: relative;
+    color: #000000;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.facility_item i {
+    color: #8C0000;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.button_action {
+    margin-top: 10px;
+    margin-inline: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button_action button {
+    width: 280px;
+    height: 40px;
+    border-radius: 10px;
+    background: #8C0000;
+    color: #ffffff;
+}
+
+.card_items.hide {
+    display: none;
+}
+
+/* Penyesuaian Modal Body Detail Armada */
+.modal_body {
+    padding: 20px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.modal_desc {
+    font-size: 14px;
+    color: #555;
+    margin-top: 8px;
+    line-height: 1.5;
+}
+
+.modal_specs {
+    margin-top: 15px;
+    background-color: #f8f9fa;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px dashed #ddd;
+}
+
+.modal_specs h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #222;
+}
+
+/* Tombol WhatsApp Modal Detail */
+.btn_wa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    height: 44px;
+    background-color: #25D366;
+    color: #ffffff !important;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 8px;
+    margin-top: 18px;
+    transition: background-color 0.2s ease;
+}
+
+.btn_wa:hover {
+    background-color: #1ebd59;
 }

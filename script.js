@@ -1,10 +1,21 @@
-// Logika 1: Video Control
+// ==========================================
+// 1. LOGIKA SCROLL HEADER
+// ==========================================
+window.addEventListener('scroll', function () {
+    const header = document.getElementById('header');
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
 
-// URL Video Contoh (Eksterior dan Interior)
+// ==========================================
+// 2. LOGIKA VIDEO CONTROL HERO
+// ==========================================
 const exteriorVideoUrl = "./assets/2.mp4";
 const interiorVideoUrl = "./assets/1.mp4";
 
-// Mengambil Element DOM
 const video = document.getElementById('myVideo');
 const playPauseBtn = document.getElementById('playPauseBtn');
 const playIcon = document.getElementById('playIcon');
@@ -15,102 +26,103 @@ const nextBtn = document.getElementById('nextBtn');
 
 let isInterior = false;
 
-// 1. Fungsi Toggle Play / Pause
-playPauseBtn.addEventListener('click', () => {
-    if (video.paused) {
+if (playPauseBtn && video) {
+    playPauseBtn.addEventListener('click', () => {
+        if (video.paused) {
+            video.play();
+            playIcon.className = 'ri-pause-line';
+        } else {
+            video.pause();
+            playIcon.className = 'ri-play-fill';
+        }
+    });
+}
+
+if (toggleInteriorBtn && video) {
+    toggleInteriorBtn.addEventListener('click', () => {
+        isInterior = !isInterior;
+        if (isInterior) {
+            video.src = interiorVideoUrl;
+            toggleInteriorBtn.setAttribute('title', 'Show Eksterior');
+            toggleIcon.className = 'ri-login-box-line';
+        } else {
+            video.src = exteriorVideoUrl;
+            toggleInteriorBtn.setAttribute('title', 'Show Interior');
+            toggleIcon.className = 'ri-logout-box-r-line';
+        }
         video.play();
-        // Ganti class icon ke Play
-        playIcon.className = 'ri-play-fill';
-    } else {
-        video.pause();
-        // Ganti class icon ke Pause
-        playIcon.className = 'ri-pause-line';
-    }
-});
+        if (playIcon) playIcon.className = 'ri-pause-line';
+    });
+}
 
-// 2. Fungsi Toggle Interior / Eksterior Video
-toggleInteriorBtn.addEventListener('click', () => {
-    isInterior = !isInterior;
+if (prevBtn && video) {
+    prevBtn.addEventListener('click', () => {
+        video.currentTime = Math.max(0, video.currentTime - 5);
+    });
+}
 
-    if (isInterior) {
-        video.src = interiorVideoUrl;
-        toggleInteriorBtn.setAttribute('title', 'Show Eksterior');
-        toggleIcon.className = 'ri-login-box-line';
-    } else {
-        video.src = exteriorVideoUrl;
-        toggleInteriorBtn.setAttribute('title', 'Show Interior');
-        toggleIcon.className = 'ri-logout-box-r-line';
-    }
+if (nextBtn && video) {
+    nextBtn.addEventListener('click', () => {
+        video.currentTime = Math.min(video.duration, video.currentTime + 5);
+    });
+}
 
-    video.play();
-    playIcon.className = 'ri-pause-line';
-});
-
-// 3. Tombol Prev & Next (Mundur/Maju 5 detik)
-prevBtn.addEventListener('click', () => {
-    video.currentTime = Math.max(0, video.currentTime - 5);
-});
-
-nextBtn.addEventListener('click', () => {
-    video.currentTime = Math.min(video.duration, video.currentTime + 5);
-});
-
-// Logika 2: Rekomendasi Bus
+// ==========================================
+// 3. LOGIKA REKOMENDASI BUS (MODAL PENCARIAN)
+// ==========================================
 const busDatabase = [
     {
         id: 1,
         nama: "Bintang Jaya Medium Short",
-        maxKapasitas: 30,
+        maxKapasitas: 15,
         tujuan: ["Tuban", "Yogyakarta", "Malang", "Surabaya"],
-        gambar: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=600",
+        gambar: "./assets/dummy_card_img.jpg",
         fasilitas: ["AC", "Reclining Seat", "USB Charger", "TV/Karaoke"],
     },
     {
         id: 2,
         nama: "Bintang Jaya Medium Long",
-        maxKapasitas: 40,
-        tujuan: ["Tuban", "Yogyakarta", "Bali", "Lombok", "Sumatra"],
-        gambar: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&q=80&w=600",
+        maxKapasitas: 30,
+        tujuan: ["Tuban", "Yogyakarta", "Bali", "Lombok"],
+        gambar: "./assets/dummy_card_img.jpg",
         fasilitas: ["AC", "Reclining Seat", "USB Charger", "TV/Karaoke"],
     },
     {
         id: 3,
         nama: "Bintang Jaya Big Bus",
-        maxKapasitas: 60,
-        tujuan: ["Tuban", "Yogyakarta", "Malang", "Bali", "Jakarta", "Sumatra", "Lombok"],
-        gambar: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=600",
-        fasilitas: ["AC", "2-2 Seat", "Reclining Seat", "Wi-Fi", "Dispenser", "USB Charger", "TV/Karaoke"],
+        maxKapasitas: 50,
+        tujuan: ["Tuban", "Yogyakarta", "Malang", "Bali", "Jakarta"],
+        gambar: "./assets/dummy_card_img.jpg",
+        fasilitas: ["AC", "2-2 Seat", "Reclining Seat", "Dispenser", "USB Charger", "TV/Karaoke"],
     },
 ];
 
-// 2. Amabil Element DOM
 const passengerSelect = document.getElementById('passengerSelect');
 const destinationSelect = document.getElementById('destinationSelect');
 const searchBtn = document.getElementById('searchBtn');
-const busModal = document.getElementById('busModal');
-const closeModal = document.getElementById('closeModal');
-const busResultContainer = document.getElementById('busResultContainer')
+const searchResultModal = document.getElementById('searchResultModal');
+const closeSearchModal = document.getElementById('closeSearchModal');
+const busResultContainer = document.getElementById('busResultContainer');
 
-// 3. Logic saat Tombol Cari Diklik
-searchBtn.addEventListener('click', () => {
-    const selectedPassengers = parseInt(passengerSelect.value);
-    const selectedDestination = destinationSelect.value;
+if (searchBtn) {
+    searchBtn.addEventListener('click', () => {
+        const selectedPassengers = parseInt(passengerSelect.value);
+        const selectedDestination = destinationSelect.value;
 
-    if (!selectedPassengers || !selectedDestination) {
-        alert('Silahkan pilih jumlah penumpang dan tujuan terlebih dahulu');
-        return;
-    }
+        if (!selectedPassengers || !selectedDestination) {
+            alert('Silakan pilih jumlah penumpang dan tujuan terlebih dahulu!');
+            return;
+        }
 
-    const filteredBuses = busDatabase.filter(bus => {
-        return bus.maxKapasitas >= selectedPassengers && bus.tujuan.includes(selectedDestination);
+        const filteredBuses = busDatabase.filter(bus => {
+            return bus.maxKapasitas >= selectedPassengers && bus.tujuan.includes(selectedDestination);
+        });
+
+        renderBusResult(filteredBuses);
+        if (searchResultModal) searchResultModal.classList.add('active');
     });
+}
 
-    renderBusResult(filteredBuses);
-
-    busModal.classList.add('active');
-});
-
-// 4. Fungsi Render Komponen Card Bus ke HTML
 function renderBusResult(buses) {
     busResultContainer.innerHTML = '';
 
@@ -148,14 +160,65 @@ function renderBusResult(buses) {
     });
 }
 
-// 5. Logic Menutup Modal Popup
-closeModal.addEventListener('click', () => {
-    busModal.classList.remove('active');
-});
+if (closeSearchModal) {
+    closeSearchModal.addEventListener('click', () => {
+        searchResultModal.classList.remove('active');
+    });
+}
 
-// Tutup jika area luar modal diklik
-window.addEventListener('click', (event) => {
-    if (event.target === busModal) {
-        busModal.classList.remove('active');
+// ==========================================
+// 4. LOGIKA TAB FILTER & MODAL DETAIL ARMADA
+// ==========================================
+function filterArmada(category) {
+    const tabs = document.querySelectorAll('.armada_tab_btn');
+    const cards = document.querySelectorAll('.card_items');
+
+    tabs.forEach(tab => tab.classList.remove('active'));
+    if (event && event.target) {
+        event.target.classList.add('active');
+    }
+
+    cards.forEach(card => {
+        if (card.classList.contains(category)) {
+            card.classList.remove('hide');
+        } else {
+            card.classList.add('hide');
+        }
+    });
+}
+
+const armadaDetailModal = document.getElementById('armadaDetailModal');
+const modalTitle = document.getElementById('modalTitle');
+const modalSub = document.getElementById('modalSub');
+const modalDesc = document.getElementById('modalDesk');
+const modalImg = document.getElementById('modalImg');
+const modalWaBtn = document.getElementById('modalWaBtn');
+
+function openModal(code, type, description, imgSrc) {
+    if (modalTitle) modalTitle.innerText = code;
+    if (modalSub) modalSub.innerText = type;
+    if (modalDesc) modalDesc.innerText = description;
+    if (modalImg) modalImg.src = imgSrc;
+
+    const waNumber = "6281917382232"; // Ganti nomor WhatsApp asli Bintang Jaya Lancar
+    const message = `Halo Admin Bintang Jaya Lancar, saya ingin bertanya ketersediaan unit armada ${code} (${type}).`;
+    if (modalWaBtn) {
+        modalWaBtn.href = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+    }
+
+    if (armadaDetailModal) armadaDetailModal.classList.add('active');
+}
+
+function closeModal() {
+    if (armadaDetailModal) armadaDetailModal.classList.remove('active');
+}
+
+// Event Listener Klik Luar Modal
+window.addEventListener('click', function (event) {
+    if (event.target === searchResultModal) {
+        searchResultModal.classList.remove('active');
+    }
+    if (event.target === armadaDetailModal) {
+        armadaDetailModal.classList.remove('active');
     }
 });
