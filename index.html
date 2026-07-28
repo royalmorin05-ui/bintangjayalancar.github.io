@@ -7,6 +7,7 @@
     <title>Bintang Jaya Lancar | A Journey of Goodness</title>
     <!-- Desktop Style -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./mobile-responsive.css">
     <!-- RemixIcon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
     <!-- CDN Tailwindcss (Opsional) -->
@@ -22,7 +23,7 @@
                 <p class="logo_title">BintangJayaLancar.</p>
             </div>
 
-            <div class="menu">
+            <div class="menu" id="mobileMenu">
                 <ul class="menu_list">
                     <li class="menu_item"><a href="#" class="menu_link">Beranda</a></li>
                     <li class="menu_item"><a href="#profil" class="menu_link">Profil</a></li>
@@ -39,6 +40,10 @@
                     </a>
                 </div>
             </div>
+
+            <button class="menu_toggle" id="menuToggle">
+                <i class="ri-menu-line"></i>
+            </button>
         </div>
     </header>
 
@@ -290,7 +295,115 @@
         </div>
     </div>
 
+    <section class="destinasi" id="destinasi">
+        <div class="destinasi_header">
+            <h2 class="destinasi_title">Destinasi</h2>
+            <p class="destinasi_subtitle">Tempat-tempat wisata di pulau jawa dan luar jawa yang dapat Anda kunjungi</p>
+        </div>
+
+        <div class="destinasi_body">
+            <div class="destinasi_items">
+                <div class="destinasi_card">
+                    <div class="overlay_destinasi_card"></div>
+                    <img src="./assets/dummy_card_img.jpg" alt="">
+                    <p class="destinasi_name">Yogyakarta</p>
+                </div>
+                <div class="destinasi_card">
+                    <div class="overlay_destinasi_card"></div>
+                    <img src="./assets/dummy_card_img.jpg" alt="">
+                    <p class="destinasi_name">Pacitan</p>
+                </div>
+                <div class="destinasi_card">
+                    <div class="overlay_destinasi_card"></div>
+                    <img src="./assets/dummy_card_img.jpg" alt="">
+                    <p class="destinasi_name">Malang</p>
+                </div>
+                <div class="destinasi_card">
+                    <div class="overlay_destinasi_card"></div>
+                    <img src="./assets/dummy_card_img.jpg" alt="">
+                    <p class="destinasi_name">Batu</p>
+                </div>
+                <div class="destinasi_button">
+                    <button class="btn_destinasi">
+                        <a href="">Lihat Semua</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="update_blog" id="blog">
+        <div class="update_blog_header">
+            <h2 class="update_blog_title"><span>Bintang Jaya Lancar</span> Update</h2>
+            <p class="update_blog_subtitle">Berita Terbaru tentang perusahaan</p>
+        </div>
+
+        <div class="update_body">
+            <div class="update_card">
+                <img src="./assets/dummy_card_img.jpg" alt="">
+                <a href="#" class="update_title">Berita Bintang Jaya Lancar 1</a>
+                <p class="update_subtitle">Unit Bintang Jaya Lancar mencapai 100 unit pada tahun ini</p>
+            </div>
+            <div class="update_card">
+                <img src="./assets/dummy_card_img.jpg" alt="">
+                <a href="#" class="update_title">Berita Bintang Jaya Lancar 2</a>
+                <p class="update_subtitle">Saham perolehan keuntungan meroket hingga 150% tahun ini</p>
+            </div>
+            <div class="update_card">
+                <img src="./assets/dummy_card_img.jpg" alt="">
+                <a href="#" class="update_title">Berita Bintang Jaya Lancar 3</a>
+                <p class="update_subtitle">Garasi terbaru Bintang Jaya Lancar telah dibuka untuk persiapan penambahan
+                    armada.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="info_kontak" id="kontak">
+        <div class="info_right_items">
+            <div class="info_header">
+                <h2 class="info_title">Info Kontak</h2>
+                <p class="info_subtitle">Lakukan pemesanan sekarang untuk pemesanan unit
+                    dan mengetahui fasilitas armada</p>
+            </div>
+
+            <div class="info_body">
+                <div class="info_card">
+                    <h3 class="info_name">Telepon</h3>
+                    <div class="info_component">
+                        <i class="fa-brands fa-whatsapp"></i> 0811-1234-5678
+                    </div>
+                </div>
+                <div class="info_card">
+                    <h3 class="info_name">Email</h3>
+                    <div class="info_component">
+                        <i class="fa-solid fa-at"></i> bintangjayalancar@gmail.com
+                    </div>
+                </div>
+                <div class="info_card">
+                    <h3 class="info_name">Platform Lain</h3>
+                    <div class="info_component">
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-tiktok"></i>
+                    </div>
+                </div>
+                <div class="info_card">
+                    <h3 class="info_name">Jam Pelayanan</h3>
+                    <div class="info_component">
+                        24 Jam
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info_left_items">
+            <img src="./assets/dummy_card_img.jpg" alt="">
+        </div>
+    </section>
+
     <script src="script.js" defer></script>
+    <!-- Awesome Icon -->
+    <script src="https://kit.fontawesome.com/d67b28f8e8.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

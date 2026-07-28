@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,9 +18,14 @@
     text-decoration: none;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     min-height: 100vh;
     background: #ffffff;
+    scroll-behavior: smooth;
 }
 
 .header {
@@ -528,6 +542,7 @@ body {
 }
 
 .liquid_glass {
+    flex-wrap: nowrap;
     border-radius: 20px;
     isolation: isolate;
     box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.2);
@@ -819,4 +834,261 @@ body {
 
 .btn_wa:hover {
     background-color: #1ebd59;
+}
+
+.destinasi {
+    position: relative;
+    top: 100px;
+    width: 100%;
+    height: fit-content;
+}
+
+.destinasi_header {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.destinasi_title {
+    font-size: 32px;
+    font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #000000;
+}
+
+.destinasi_subtitle {
+    font-size: 16px;
+    font-weight: 400px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #000000;
+}
+
+.destinasi_body {
+    position: relative;
+    margin-top: 20px;
+}
+
+.destinasi_items {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+}
+
+.destinasi_card {
+    position: relative;
+    margin-inline: 10px;
+    width: 250px;
+    height: 300px;
+}
+
+.destinasi_card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.overlay_destinasi_card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 300px;
+    background: linear-gradient(to bottom, transparent, #ffffff)
+}
+
+.destinasi_name {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #000000;
+}
+
+.destinasi_button {
+    position: relative;
+    width: 100px;
+    height: 300px;
+}
+
+.btn_destinasi {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #8C0000;
+    color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_destinasi a {
+    position: relative;
+    transform: rotate(90deg);
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.update_blog {
+    position: relative;
+    top: 200px;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+    margin-inline: auto;
+    max-width: 1280px;
+}
+
+.update_blog_header {
+    margin-top: 20px;
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    margin-inline: auto;
+    padding-left: 20px;
+}
+
+.update_blog_title {
+    font-size: 32px;
+    font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #000000;
+}
+
+.update_blog_title span {
+    color: #8C0000;
+}
+
+.update_body {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.update_card {
+    position: relative;
+    width: 400px;
+    height: 340px;
+    margin-inline: 10px;
+}
+
+.update_title {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #000000;
+    margin-top: 20px;
+}
+
+.update_subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #000000;
+}
+
+.info_kontak {
+    position: relative;
+    margin-top: 100px;
+    top: 200px;
+    width: 1240px;
+    height: 450px;
+    border-radius: 10px;
+    background-color: #8C0000;
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info_right_items {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding: 20px;
+}
+
+.info_header {
+    position: relative;
+}
+
+.info_title {
+    font-size: 32px;
+    font-weight: 900;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.info_body {
+    position: relative;
+    margin-top: 30px;
+}
+
+.info_card {
+    position: relative;
+    margin-top: 20px;
+}
+
+.info_name {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #ffffff;
+}
+
+.info_component {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #ffffff;
+}
+
+.info_component i {
+    margin-inline: 5px;
+    margin-top: 10px;
+}
+
+.info_subtitle {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #ffffff;
+}
+
+.info_left_items {
+    position: relative;
+    width: 620px;
+    height: 420px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.info_left_items img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
 }

@@ -222,3 +222,103 @@ window.addEventListener('click', function (event) {
         armadaDetailModal.classList.remove('active');
     }
 });
+
+/* ==================================================
+   MOBILE MENU
+   Bintang Jaya Lancar
+================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const toggle = document.getElementById("menuToggle");
+    const menu = document.getElementById("mobileMenu");
+
+    if (!toggle || !menu) return;
+
+    /* ===========================
+       Overlay
+    =========================== */
+
+    const overlay = document.createElement("div");
+    overlay.className = "mobile_overlay";
+    document.body.appendChild(overlay);
+
+    /* ===========================
+       Open Menu
+    =========================== */
+
+    function openMenu() {
+        menu.classList.add("active");
+        overlay.classList.add("active");
+        document.body.style.overflow = "hidden";
+
+        toggle.innerHTML =
+            '<i class="ri-close-line"></i>';
+    }
+
+    /* ===========================
+       Close Menu
+    =========================== */
+
+    function closeMenu() {
+        menu.classList.remove("active");
+        overlay.classList.remove("active");
+        document.body.style.overflow = "";
+
+        toggle.innerHTML =
+            '<i class="ri-menu-line"></i>';
+    }
+
+    /* ===========================
+       Toggle
+    =========================== */
+
+    toggle.addEventListener("click", () => {
+
+        if (menu.classList.contains("active")) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+
+    });
+
+    /* ===========================
+       Klik Overlay
+    =========================== */
+
+    overlay.addEventListener("click", closeMenu);
+
+    /* ===========================
+       Klik Link Menu
+    =========================== */
+
+    const links = menu.querySelectorAll("a");
+
+    links.forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            if (window.innerWidth <= 992) {
+                closeMenu();
+            }
+
+        });
+
+    });
+
+    /* ===========================
+       Resize Desktop
+    =========================== */
+
+    window.addEventListener("resize", () => {
+
+        if (window.innerWidth > 992) {
+
+            closeMenu();
+
+        }
+
+    });
+
+});
