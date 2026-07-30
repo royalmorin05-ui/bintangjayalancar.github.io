@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bintang Jaya Lancar | A Journey of Goodness</title>
+    <!-- Desktop Style -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./mobile-responsive.css">
+    <!-- RemixIcon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- CDN Tailwindcss (Opsional) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="nav container">
+            <div class="logo">
+                <p class="logo_title">BintangJayaLancar.</p>
+            </div>
+
+            <div class="menu" id="mobileMenu">
+                <ul class="menu_list">
+                    <li class="menu_item"><a href="#" class="menu_link">Beranda</a></li>
+                    <li class="menu_item"><a href="#profil" class="menu_link">Profil</a></li>
+                    <li class="menu_item"><a href="#armada" class="menu_link">Armada</a></li>
+                    <li class="menu_item"><a href="#destinasi" class="menu_link">Destinasi</a></li>
+                    <li class="menu_item"><a href="#kontak" class="menu_link">Kontak</a></li>
+                </ul>
+            </div>
+
+            <div class="action_nav">
+                <div class="action_box">
+                    <a href="./pages/booking.html">
+                        <i class="ri-book-line"></i> <span>Pesan Sekarang</span>
+                    </a>
+                </div>
+            </div>
+
+            <button class="menu_toggle" id="menuToggle">
+                <i class="ri-menu-line"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="videocard_container">
+            <div class="hero_slider">
+                <!-- <img src="./assets/about_img_1.jpg" class="slide active" alt="Armada 1">
+                <img src="./assets/about_img_2.jpg" class="slide" alt="Armada 2">
+                <img src="./assets/dummy_card_img.jpg" class="slide" alt="Armada 3"> -->
+            </div>
+
+            <div class="video_description">
+                <div class="left_description">
+                    <h1>Bintang Jaya Lancar</h1>
+                    <span>A Journey of Goodness</span>
+                </div>
+                <div class="right_description">
+                    <i class="ri-star-fill"><span class="bold_rating">4,9/5</span></i>
+                    <span class="jumlah_rating">(1000+ rombongan)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="search_box">
+            <div class="input_group">
+                <i class="ri-team-line"></i>
+                <select id="passengerSelect">
+                    <option value="" disabled selected>Jumlah Penumpang</option>
+                    <option value="15">1 - 15 Orang (Short Medium)</option>
+                    <option value="30">16 - 30 Orang (Medium Bus)</option>
+                    <option value="50">31 - 50 Orang (Big Bus)</option>
+                </select>
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="input_group">
+                <i class="ri-map-pin-line"></i>
+                <select id="destinationSelect">
+                    <option value="" disabled selected>Tujuan</option>
+                    <option value="Tuban">Tuban</option>
+                    <option value="Yogyakarta">Yogyakarta</option>
+                    <option value="Bali">Bali</option>
+                </select>
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <button class="btn_search" id="searchBtn">
+                <i class="ri-search-line"></i> Cari Bus
+            </button>
+        </div>
+
+        <div class="modal_overlay" id="searchResultModal">
+            <div class="modal_content">
+                <button class="close_btn" id="closeSearchModal">&times;</button>
+                <h3 class="modal_title">Rekomendasi Bus</h3>
+                <div id="busResultContainer"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about_us" id="profil">
+        <div class="about_us_title">
+            <h1>Tentang Kami</h1>
+            <p>Ketahui lebih lanjut tentang perusahaan kami</p>
+        </div>
+
+        <div class="about_us_items">
+            <div class="about_left_items">
+                <img src="./assets/logo 1.png" class="about_us_logo" alt="about logo">
+                <p>
+                    Bintang Jaya Lancar adalah sebuah perusahaan otobus yang didirikan
+                    pada 20 Agustus 2008 di Jatirogo, Tuban, Jawa Timur. Saat itu Bintang
+                    Jaya Lancar didirikan oleh Sang Owner dengan nama PO. Yukawi, yang
+                    terinspirasi dari nama toko sepatu milik orang tua Sang Owner, waktu
+                    ke waktu PO. Yukawi semakin berkembang hingga pada 14 Juli 2016
+                    PO. Yukawi berubah nama menjadi PO. Bintang Jaya Lancar. Bintang yang
+                    Berarti lambang tertinggi/kemilau, Jaya yang berarti kejayaan/kesuksesan
+                    dan Lancar yang berarti tidak ada hambatan.
+                </p>
+                <p class="po_quote"> - Bintang Jaya Lancar</p>
+                <button class="about_us_button">Lihat Profil Lengkap</button>
+            </div>
+            <div class="about_right_items">
+                <div class="right_items_about">
+                    <img src="./assets/about_img_1.jpg" alt="about img 1">
+                    <span class="liquid_glass">Armada Premium</span>
+                </div>
+                <div class="left_items_about">
+                    <img src="./assets/about_img_2.jpg" alt="about img 2">
+                    <span class="liquid_glass">Armada Terawat</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="armada" id="armada">
+        <div class="armada_header">
+            <h2 class="armada_title">Armada</h2>
+            <p class="armada_subtitle">Pilihan Bus Pariwisata Premium Dengan Fasilitas Yang Mewah dan Terawat</p>
+
+            <div class="armada_tabs_container">
+                <div class="armada_tab_box">
+                    <button class="armada_tab_btn active" onclick="filterArmada('medium')">Medium</button>
+                    <button class="armada_tab_btn" onclick="filterArmada('big')">Big Bus</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="armada_card">
+            <!-- <div class="card_items medium">
+                <div class="card_header">
+                    <img src="./assets/dummy_card_img.jpg" alt="BJ-001">
+                    <span class="badge_engine">Volvo</span>
+                </div>
+                <div class="card_body">
+                    <div class="body_header">
+                        <h2 class="buses_name">BJ-001</h2>
+                        <p class="body_name">Adiputro JB3+ MD</p>
+                    </div>
+                    <div class="body_items">
+                        <h2>Fasilitas</h2>
+                        <div class="facility_items_grid">
+                            <div class="facility_item"><i class="ri-group-line"></i> 40 Seat</div>
+                            <div class="facility_item"><i class="ri-snowflake-fill"></i> AC</div>
+                            <div class="facility_item"><i class="ri-mic-line"></i> Karaoke</div>
+                            <div class="facility_item"><i class="ri-usb-line"></i> USB Charger</div>
+                        </div>
+                        <div class="button_action">
+                            <button
+                                onclick="openModal('BJ-001', 'Adiputro Jetbus 3+ MD (40 seat)', 'Medium Bus yang sangat lincah untuk rute pegunungan maupun perkotaan. Dilengkapi dengan interior mewah dan audio karaoke mantap.', './assets/dummy_card_img.jpg')">Lihat
+                                Detail</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card_items medium">
+                <div class="card_header">
+                    <img src="./assets/dummy_card_img.jpg" alt="BJ-002">
+                    <span class="badge_engine">Hino</span>
+                </div>
+                <div class="card_body">
+                    <div class="body_header">
+                        <h2 class="buses_name">BJ-002</h2>
+                        <p class="body_name">Adiputro JB5 MD</p>
+                    </div>
+                    <div class="body_items">
+                        <h2>Fasilitas</h2>
+                        <div class="facility_items_grid">
+                            <div class="facility_item"><i class="ri-group-line"></i> 40 Seat</div>
+                            <div class="facility_item"><i class="ri-snowflake-fill"></i> AC</div>
+                            <div class="facility_item"><i class="ri-mic-line"></i> Karaoke</div>
+                            <div class="facility_item"><i class="ri-usb-line"></i> USB Charger</div>
+                        </div>
+                        <div class="button_action">
+                            <button
+                                onclick="openModal('BJ-002', 'Adiputro Jetbus 5 MD (40 seat)', 'Medium Bus eksklusif dengan kenyamanan maksimal dan interior modern terkini.', './assets/dummy_card_img.jpg')">Lihat
+                                Detail</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card_items big hide">
+                <div class="card_header">
+                    <img src="./assets/dummy_card_img.jpg" alt="BJ-003">
+                    <span class="badge_engine">Mercedes-Benz</span>
+                </div>
+                <div class="card_body">
+                    <div class="body_header">
+                        <h2 class="buses_name">BJ-003</h2>
+                        <p class="body_name">Laksana SR3 Legacy</p>
+                    </div>
+                    <div class="body_items">
+                        <h2>Fasilitas</h2>
+                        <div class="facility_items_grid">
+                            <div class="facility_item"><i class="ri-group-line"></i> 60 Seat</div>
+                            <div class="facility_item"><i class="ri-snowflake-fill"></i> AC</div>
+                            <div class="facility_item"><i class="ri-mic-line"></i> Karaoke</div>
+                            <div class="facility_item"><i class="ri-usb-line"></i> USB Charger</div>
+                        </div>
+                        <div class="button_action">
+                            <button
+                                onclick="openModal('BJ-003', 'Laksana SR3 Legacy (60 seat)', 'Armada Big Bus favorit untuk rombongan sekolah atau instansi perusahaan. Legroom luas dan suspensi udara yang halus.', './assets/dummy_card_img.jpg')">Lihat
+                                Detail</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card_items big hide">
+                <div class="card_header">
+                    <img src="./assets/dummy_card_img.jpg" alt="BJ-004">
+                    <span class="badge_engine">Scania</span>
+                </div>
+                <div class="card_body">
+                    <div class="body_header">
+                        <h2 class="buses_name">BJ-004</h2>
+                        <p class="body_name">Adiputro JB5+ SDD</p>
+                    </div>
+                    <div class="body_items">
+                        <h2>Fasilitas</h2>
+                        <div class="facility_items_grid">
+                            <div class="facility_item"><i class="ri-group-line"></i> 50 Seat</div>
+                            <div class="facility_item"><i class="ri-snowflake-fill"></i> AC</div>
+                            <div class="facility_item"><i class="ri-mic-line"></i> Karaoke</div>
+                            <div class="facility_item"><i class="ri-usb-line"></i> USB Charger</div>
+                        </div>
+                        <div class="button_action">
+                            <button
+                                onclick="openModal('BJ-004', 'Adiputro JB5+ SDD (50 seat)', 'Super Double Decker mewah untuk perjalanan antar kota/provinsi dengan pemandangan atas yang megah.', './assets/dummy_card_img.jpg')">Lihat
+                                Detail</button>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <div class="modal_overlay" id="armadaDetailModal">
+        <div class="modal_content">
+            <button class="modal_close" onclick="closeModal()"><i class="ri-close-line"></i></button>
+            <img id="modalImg" class="modal_header_img" src="" alt="Detail Armada">
+            <div class="modal_body">
+                <h3 id="modalTitle" class="modal_title">Nama Bus</h3>
+                <p id="modalSub"
+                    style="color: #8B0000; font-weight: 600; font-size: 0.9rem; font-family: 'Plus Jakarta Sans', sans-serif; margin-bottom: 5px;">
+                </p>
+                <p id="modalDesk" class="modal_desc">Deskripsi bus...</p>
+
+                <div class="modal_specs">
+                    <h4>Fasilitas Termasuk:</h4>
+                    <p style="font-size: 13px; color: #555;">✓ Reclining Seats &nbsp; ✓ Audio & Smart TV &nbsp; ✓
+                        Dispenser &nbsp; ✓ USB Charger</p>
+                </div>
+
+                <a href="#" target="_blank" id="modalWaBtn" class="btn_wa">
+                    <i class="ri-whatsapp-line"></i> Tanya Unit Via WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <section class="destinasi" id="destinasi">
+        <div class="destinasi_header">
+            <h2 class="destinasi_title">Destinasi</h2>
+            <p class="destinasi_subtitle">Tempat-tempat wisata di pulau jawa dan luar jawa yang dapat Anda kunjungi</p>
+        </div>
+
+        <div class="destinasi_body">
+            <div class="destinasi_items">
+                <!-- <div class="destinasi_card">
+                    <div class="overlay_destinasi_card"></div>
+                    <img src="./assets/dummy_card_img.jpg" alt="">
+                    <p class="destinasi_name">Yogyakarta</p>
+                </div>
+                <div class="destinasi_card">
+                    <div class="overlay_destinasi_card"></div>
+                    <img src="./assets/dummy_card_img.jpg" alt="">
+                    <p class="destinasi_name">Pacitan</p>
+                </div>
+                <div class="destinasi_card">
+                    <div class="overlay_destinasi_card"></div>
+                    <img src="./assets/dummy_card_img.jpg" alt="">
+                    <p class="destinasi_name">Malang</p>
+                </div>
+                <div class="destinasi_card">
+                    <div class="overlay_destinasi_card"></div>
+                    <img src="./assets/dummy_card_img.jpg" alt="">
+                    <p class="destinasi_name">Batu</p>
+                </div> -->
+                <div class="destinasi_button">
+                    <button class="btn_destinasi">
+                        <a href="">Lihat Semua</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="update_blog" id="blog">
+        <div class="update_blog_header">
+            <h2 class="update_blog_title"><span>Bintang Jaya Lancar</span> Update</h2>
+            <p class="update_blog_subtitle">Berita Terbaru tentang perusahaan</p>
+        </div>
+
+        <div class="update_body">
+            <!-- <div class="update_card">
+                <img src="./assets/dummy_card_img.jpg" alt="">
+                <a href="#" class="update_title">Berita Bintang Jaya Lancar 1</a>
+                <p class="update_subtitle">Unit Bintang Jaya Lancar mencapai 100 unit pada tahun ini</p>
+            </div>
+            <div class="update_card">
+                <img src="./assets/dummy_card_img.jpg" alt="">
+                <a href="#" class="update_title">Berita Bintang Jaya Lancar 2</a>
+                <p class="update_subtitle">Saham perolehan keuntungan meroket hingga 150% tahun ini</p>
+            </div>
+            <div class="update_card">
+                <img src="./assets/dummy_card_img.jpg" alt="">
+                <a href="#" class="update_title">Berita Bintang Jaya Lancar 3</a>
+                <p class="update_subtitle">Garasi terbaru Bintang Jaya Lancar telah dibuka untuk persiapan penambahan
+                    armada.</p>
+            </div> -->
+        </div>
+    </section>
+
+    <section class="info_kontak" id="kontak">
+        <div class="info_right_items">
+            <div class="info_header">
+                <h2 class="info_title">Info Kontak</h2>
+                <p class="info_subtitle">Lakukan pemesanan sekarang untuk pemesanan unit
+                    dan mengetahui fasilitas armada</p>
+            </div>
+
+            <div class="info_body">
+                <div class="info_card">
+                    <h3 class="info_name">Telepon</h3>
+                    <div class="info_component">
+                        <i class="fa-brands fa-whatsapp"></i> 0811-1234-5678
+                    </div>
+                </div>
+                <div class="info_card">
+                    <h3 class="info_name">Email</h3>
+                    <div class="info_component">
+                        <i class="fa-solid fa-at"></i> bintangjayalancar@gmail.com
+                    </div>
+                </div>
+                <div class="info_card">
+                    <h3 class="info_name">Platform Lain</h3>
+                    <div class="info_component">
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-tiktok"></i>
+                    </div>
+                </div>
+                <div class="info_card">
+                    <h3 class="info_name">Jam Pelayanan</h3>
+                    <div class="info_component">
+                        24 Jam
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info_left_items">
+            <img src="./assets/dummy_card_img.jpg" alt="">
+        </div>
+    </section>
+
+    <script src="script.js" defer></script>
+    <!-- Awesome Icon -->
+    <script src="https://kit.fontawesome.com/d67b28f8e8.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
