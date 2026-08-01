@@ -1,7 +1,7 @@
 // ==========================================
 // CONFIGURASI BACKEND API
 // ==========================================
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = '/api';
 
 // ==========================================
 // 1. LOGIKA SCROLL HEADER (BAWAAN)
