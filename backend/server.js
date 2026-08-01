@@ -61,6 +61,7 @@ app.get('/api/armada', (req, res) => {
 });
 
 app.get('/api/destinasi', (req, res) => {
+    const { id } = req.params;
     handleQuery(res, supabase.from('destinasi').select('*').order('id', { ascending: true }), 'destinasi');
 });
 

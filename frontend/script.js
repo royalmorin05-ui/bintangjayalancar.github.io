@@ -196,11 +196,9 @@ async function loadArmada() {
                 `<div class="facility_item"><i class="ri-checkbox-circle-line"></i> ${f}</div>`
             ).join('') : '';
 
-            // Secara default tampilkan medium, yang big diberi class 'hide'
-            const isHidden = item.category !== 'medium' ? 'hide' : '';
-
+            // Hapus kondisi isHidden, biarkan semua tampil secara default (untuk tab 'Lihat Semua')
             return `
-            <div class="card_items ${item.category} ${isHidden}">
+            <div class="card_items ${item.category}">
                 <div class="card_header">
                     <img src="${item.image_url}" alt="${item.code}">
                     <span class="badge_engine">${item.engine}</span>
@@ -239,7 +237,9 @@ function filterArmada(category) {
     }
 
     cards.forEach(card => {
-        if (card.classList.contains(category)) {
+        if (category === 'all') {
+            card.classList.remove('hide'); // Tampilkan semua
+        } else if (card.classList.contains(category)) {
             card.classList.remove('hide');
         } else {
             card.classList.add('hide');
@@ -309,7 +309,7 @@ async function loadDestinasi() {
 
         container.innerHTML = cardsHTML + `
             <div class="destinasi_button">
-                <button class="btn_destinasi"><a href="#">Lihat Semua</a></button>
+                <button class="btn_destinasi"><a href="../pages/semua-destinasi.html">Lihat Semua</a></button>
             </div>
         `;
     } catch (err) {

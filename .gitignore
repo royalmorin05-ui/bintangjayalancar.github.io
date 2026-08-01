@@ -1,0 +1,12 @@
+# Mengabaikan node_modules di dalam folder backend
+backend/node_modules/
+
+# Mengabaikan file rahasia .env di dalam folder backend
+backend/.env
+
+# (Opsional) Mengabaikan node_modules jika frontend nantinya pakai npm juga
+frontend/node_modules/
+
+# (Opsional) File sistem OS bawaan
+.DS_Store
+Thumbs.db

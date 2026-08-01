@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Destinasi | Bintang Jaya Lancar</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .detail_container { max-width: 800px; margin: 120px auto 40px; padding: 20px; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .detail_img { width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 20px; }
+        .detail_title { font-size: 36px; font-weight: 800; color: #111; margin-bottom: 10px; }
+        .detail_desc { font-size: 16px; color: #444; line-height: 1.6; text-align: justify; }
+    </style>
+</head>
+<body>
+    <header class="header scrolled"><div class="nav container"><a href="./semua-destinasi.html" class="logo_title" style="color:black;">&larr; Kembali ke Destinasi</a></div></header>
+
+    <div class="detail_container" id="detailContainer">
+        <h2>Memuat detail destinasi...</h2>
+    </div>
+
+    <script>
+        const API_BASE_URL = 'http://localhost:5000/api';
+        
+        async function loadDetail() {
+            // Ambil ID dari URL (misal: detail-destinasi.html?id=2)
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+            const container = document.getElementById('detailContainer');
+
+            if (!id) {
+                container.innerHTML = "<h2>Destinasi tidak ditemukan.</h2>";
+                return;
+            }
+
+            try {
+                const res = await fetch(`${API_BASE_URL}/destinasi/${id}`);
+                const data = await res.json();
+
+                if(data.error) throw new Error(data.error);
+
+                // Asumsi database memiliki field: name, image_url, description
+                container.innerHTML = `
+                    <img src="${data.image_url}" alt="${data.name}" class="detail_img">
+                    <h1 class="detail_title">${data.name}</h1>
+                    <div class="detail_desc">
+                        ${data.description ? data.description : '<p>Belum ada deskripsi untuk destinasi ini.</p>'}
+                    </div>
+                `;
+            } catch (err) {
+                console.error(err);
+                container.innerHTML = "<h2>Gagal memuat destinasi.</h2>";
+            }
+        }
+        loadDetail();
+    </script>
+</body>
+</html>
