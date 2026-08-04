@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armada Kami - Bintang Jaya Lancar</title>
+    
+    <!-- RemixIcon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+<body>
+    <header class="armada_header">
+        <button class="back_button">
+            <i class="ri-arrow-left-s-line"></i> Kembali
+        </button>
+
+        <div class="armada_title">
+            <h1 class="title_armada">Seluruh Armada Kami</h1>
+        </div>
+    </header>
+
+    <div class="armada_body">
+        <div class="armada_section">
+            <div class="armada_type">
+                <h3>Medium</h3>
+            </div>
+
+            <div class="armada_card_list">
+                <div class="card_items">
+                <div class="card_header">
+                    <img src="../assets/dummy_card_img.jpg" alt="${item.code}">
+                    <span class="badge_engine">${item.engine}</span>
+                </div>
+                <div class="card_body">
+                    <div class="body_header">
+                        <h2 class="buses_name">${item.code}</h2>
+                        <p class="body_name">${item.type}</p>
+                    </div>
+                    <div class="body_items">
+                        <h2>Fasilitas</h2>
+                        <div class="facility_items_grid">
+                            ${facilitiesHTML}
+                        </div>
+                        <div class="button_action">
+                            <button onclick="openModal('${item.code}', '${item.type}', '${item.description}', '${item.image_url}')">
+                                Lihat Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
