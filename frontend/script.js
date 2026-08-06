@@ -1,7 +1,7 @@
 // ==========================================
 // CONFIGURASI BACKEND API
 // ==========================================
-const API_BASE_URL = '/api';
+const API_BASE_URL = 'http://localhost:5000/api';
 
 // ==========================================
 // 1. LOGIKA SCROLL HEADER (BAWAAN)
@@ -285,37 +285,37 @@ window.addEventListener('click', function (event) {
 // ==========================================
 // 5. LOGIKA DESTINASI & BLOG (DINAMIS API)
 // ==========================================
-async function loadDestinasi() {
-    try {
-        const res = await fetch(`${API_BASE_URL}/destinasi`);
-        const destinasiList = await res.json();
-        const container = document.querySelector('.destinasi_items');
+// async function loadDestinasi() {
+//     try {
+//         const res = await fetch(`${API_BASE_URL}/destinasi`);
+//         const destinasiList = await res.json();
+//         const container = document.querySelector('.destinasi_items');
 
-        if (!container) return;
+//         if (!container) return;
 
-        // Cek apakah data yang diterima benar-benar Array
-        if (!Array.isArray(destinasiList)) {
-            console.error("Backend mengembalikan error untuk destinasi:", destinasiList);
-            return;
-        }
+//         // Cek apakah data yang diterima benar-benar Array
+//         if (!Array.isArray(destinasiList)) {
+//             console.error("Backend mengembalikan error untuk destinasi:", destinasiList);
+//             return;
+//         }
 
-        const cardsHTML = destinasiList.map(item => `
-            <div class="destinasi_card">
-                <div class="overlay_destinasi_card"></div>
-                <img src="${item.image_url}" alt="${item.name}">
-                <p class="destinasi_name">${item.name}</p>
-            </div>
-        `).join('');
+//         const cardsHTML = destinasiList.map(item => `
+//             <div class="destinasi_card">
+//                 <div class="overlay_destinasi_card"></div>
+//                 <img src="${item.image_url}" alt="${item.name}">
+//                 <p class="destinasi_name">${item.name}</p>
+//             </div>
+//         `).join('');
 
-        container.innerHTML = cardsHTML + `
-            <div class="destinasi_button">
-                <button class="btn_destinasi"><a href="../pages/semua-destinasi.html">Lihat Semua</a></button>
-            </div>
-        `;
-    } catch (err) {
-        console.error("Gagal memuat destinasi:", err);
-    }
-}
+//         container.innerHTML = cardsHTML + `
+//             <div class="destinasi_button">
+//                 <button class="btn_destinasi"><a href="../pages/semua-destinasi.html">Lihat Semua</a></button>
+//             </div>
+//         `;
+//     } catch (err) {
+//         console.error("Gagal memuat destinasi:", err);
+//     }
+// }
 
 // Lakukan hal yang sama untuk loadBlogs()
 async function loadBlogs() {
@@ -351,7 +351,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Load Data dari API Server
     loadSliders();
     loadArmada();
-    loadDestinasi();
+    // loadDestinasi();
     loadBlogs();
 
     // Mobile Responsive Menu Toggle
@@ -403,3 +403,31 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient('https://mvhgkqnotdirhgbefnlj.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12aGdrcW5vdGRpcmhnYmVmbmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU0MDY5NzUsImV4cCI6MjEwMDk4Mjk3NX0.8obC1vRAK6V_9_D5ZwbzuxW9Tl4OxstrKf4Me3xQD4Y')
+
+async function uploadImage(e) {
+  const file = e.target.files[0]
+  const fileExt = file.name.split('.').pop()
+  const fileName = `${Math.random()}.${fileExt}`
+  const filePath = `${fileName}`
+
+  // Proses upload ke bucket 'images'
+  const { data, error } = await supabase.storage
+    .from('images') // atau .from('images')
+    .upload(filePath, file)
+
+  if (error) {
+    console.error('Gagal upload:', error.message)
+    return
+  }
+
+  // Ambil URL publik gambar
+  const { data: publicUrlData } = supabase.storage
+    .from('images')
+    .getPublicUrl(filePath)
+
+  console.log('URL Gambar:', publicUrlData.publicUrl)
+}
