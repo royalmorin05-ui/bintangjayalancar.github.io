@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semua Blog - Bintang Jaya Lancar</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .all_blog_container {
+            max-width: 1240px;
+            margin: 100px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header scrolled">
+        <div class="nav container">
+            <div class="logo"><p class="logo_title">BintangJayaLancar.</p></div>
+            <div class="action_nav">
+                <a href="../index.html" style="color:#000; font-family:'Plus Jakarta Sans', sans-serif; font-weight:600;">< Kembali ke Beranda</a>
+            </div>
+        </div>
+    </header>
+
+    <div style="text-align: center; margin-top: 150px;">
+        <h1 style="font-family: 'Plus Jakarta Sans', sans-serif;">Semua Berita & Update</h1>
+    </div>
+
+    <!-- Tempat merender semua blog dari Database -->
+    <div class="all_blog_container" id="allBlogsContainer">
+        <!-- Loading state -->
+        <p style="text-align:center; width:100%;">Memuat artikel...</p>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
