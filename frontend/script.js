@@ -196,7 +196,6 @@ async function loadArmada() {
                 `<div class="facility_item"><i class="ri-checkbox-circle-line"></i> ${f}</div>`
             ).join('') : '';
 
-            // Hapus kondisi isHidden, biarkan semua tampil secara default (untuk tab 'Lihat Semua')
             return `
             <div class="card_items ${item.category}">
                 <div class="card_header">
@@ -283,41 +282,8 @@ window.addEventListener('click', function (event) {
 });
 
 // ==========================================
-// 5. LOGIKA DESTINASI & BLOG (DINAMIS API)
+// 5. LOGIKA BLOG (DINAMIS API)
 // ==========================================
-// async function loadDestinasi() {
-//     try {
-//         const res = await fetch(`${API_BASE_URL}/destinasi`);
-//         const destinasiList = await res.json();
-//         const container = document.querySelector('.destinasi_items');
-
-//         if (!container) return;
-
-//         // Cek apakah data yang diterima benar-benar Array
-//         if (!Array.isArray(destinasiList)) {
-//             console.error("Backend mengembalikan error untuk destinasi:", destinasiList);
-//             return;
-//         }
-
-//         const cardsHTML = destinasiList.map(item => `
-//             <div class="destinasi_card">
-//                 <div class="overlay_destinasi_card"></div>
-//                 <img src="${item.image_url}" alt="${item.name}">
-//                 <p class="destinasi_name">${item.name}</p>
-//             </div>
-//         `).join('');
-
-//         container.innerHTML = cardsHTML + `
-//             <div class="destinasi_button">
-//                 <button class="btn_destinasi"><a href="../pages/semua-destinasi.html">Lihat Semua</a></button>
-//             </div>
-//         `;
-//     } catch (err) {
-//         console.error("Gagal memuat destinasi:", err);
-//     }
-// }
-
-// Lakukan hal yang sama untuk loadBlogs()
 async function loadBlogs() {
     try {
         const res = await fetch(`${API_BASE_URL}/blogs`);
@@ -345,14 +311,44 @@ async function loadBlogs() {
 }
 
 // ==========================================
-// 6. MOBILE MENU & INITIAL LOAD (DOM READY)
+// 6. LOGIKA HALAMAN SEMUA BLOG (DINAMIS API)
+// ==========================================
+async function loadAllBlogsPage() {
+    const allBlogsContainer = document.getElementById('allBlogsContainer');
+    if (!allBlogsContainer) return; // Cek apakah elemen ada (hanya jalan di semua-blog.html)
+
+    try {
+        const res = await fetch(`${API_BASE_URL}/blogs`); 
+        const blogList = await res.json();
+
+        if (!Array.isArray(blogList)) {
+            allBlogsContainer.innerHTML = '<p>Gagal memuat berita.</p>';
+            return;
+        }
+
+        allBlogsContainer.innerHTML = blogList.map(item => `
+            <div class="update_card" style="width: 100%; height: auto; margin-inline: 0; margin-bottom: 20px;">
+                <img src="${item.image_url}" alt="${item.title}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                <a href="#" class="update_title" style="display:block; margin-top:15px;">${item.title}</a>
+                <p class="update_subtitle" style="margin-top:5px;">${item.subtitle}</p>
+            </div>
+        `).join('');
+    } catch (err) {
+        console.error("Gagal memuat semua blog:", err);
+        allBlogsContainer.innerHTML = '<p>Terjadi kesalahan jaringan.</p>';
+    }
+}
+
+
+// ==========================================
+// 7. MOBILE MENU & INITIAL LOAD (DOM READY)
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
     // Load Data dari API Server
     loadSliders();
     loadArmada();
-    // loadDestinasi();
     loadBlogs();
+    loadAllBlogsPage();
 
     // Mobile Responsive Menu Toggle
     const toggle = document.getElementById("menuToggle");
@@ -403,3 +399,31 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient('https://mvhgkqnotdirhgbefnlj.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12aGdrcW5vdGRpcmhnYmVmbmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU0MDY5NzUsImV4cCI6MjEwMDk4Mjk3NX0.8obC1vRAK6V_9_D5ZwbzuxW9Tl4OxstrKf4Me3xQD4Y')
+
+async function uploadImage(e) {
+  const file = e.target.files[0]
+  const fileExt = file.name.split('.').pop()
+  const fileName = `${Math.random()}.${fileExt}`
+  const filePath = `${fileName}`
+
+  // Proses upload ke bucket 'images'
+  const { data, error } = await supabase.storage
+    .from('images') // atau .from('images')
+    .upload(filePath, file)
+
+  if (error) {
+    console.error('Gagal upload:', error.message)
+    return
+  }
+
+  // Ambil URL publik gambar
+  const { data: publicUrlData } = supabase.storage
+    .from('images')
+    .getPublicUrl(filePath)
+
+  console.log('URL Gambar:', publicUrlData.publicUrl)
+}

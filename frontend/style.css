@@ -42,18 +42,18 @@ body {
 .header.scrolled {
     background: #ffffff;
 }
-
+/* 
 .container {
-    max-width: 1240px;
+    max-width: 1220px;
     margin-inline: auto;
-}
+} */
 
 .nav {
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 1240px;
     height: 60px;
     border-radius: 10px;
     background: #f2f2f2;
@@ -705,7 +705,8 @@ body {
 .card_items {
     position: relative;
     width: 300px;
-    height: 400px;
+    min-height: 400px;
+    height: fit-content;
     border-radius: 10px;
     background: #EAEAEA;
     padding: 5px;
@@ -738,6 +739,9 @@ body {
 
 .card_body {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .body_header {
@@ -798,6 +802,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: auto;
 }
 
 .button_action button {
@@ -974,7 +979,19 @@ body {
     width: 100%;
     height: fit-content;
     margin-inline: auto;
-    max-width: 1280px;
+    max-width: 1240px;
+    overflow-x: hidden;
+}
+
+.btn_lihat_semua {
+    padding: 12px 24px;
+    background-color: #8C0000;
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
 .update_blog_header {

@@ -76,17 +76,6 @@ app.get('/api/armada', async (req, res) => {
     }
 });
 
-// Endpoint Destinasi (Semua destinasi)
-app.get('/api/destinasi', (req, res) => {
-    handleQuery(res, supabase.from('destinasi').select('*').order('id', { ascending: true }), 'destinasi');
-});
-
-// Endpoint Destinasi Berdasarkan ID
-app.get('/api/destinasi/:id', (req, res) => {
-    const { id } = req.params;
-    handleQuery(res, supabase.from('destinasi').select('*').eq('id', id).single(), 'destinasi');
-});
-
 app.get('/api/blogs', (req, res) => {
     handleQuery(res, supabase.from('blogs').select('*').order('created_at', { ascending: false }), 'blogs');
 });
